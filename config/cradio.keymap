@@ -78,7 +78,7 @@
 
         tri_layer {
             if-layers = <1 2>;
-            then-layer = <3>;
+            then-layer = <4>;
         };
     };
 
@@ -110,6 +110,11 @@
             bindings = <&sk LC(LEFT_ALT)>;
             key-positions = <1 2 3>;
         };
+
+        combo_backspace {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <9 8>;
+        };
     };
 
     keymap {
@@ -119,7 +124,7 @@
             display-name = "DEFAULT";
             bindings = <
 &kp Q  &kp W  &kp E  &kp R      &kp T         &kp Y      &kp U        &kp I      &kp O    &kp P
-&kp A  &kp S  &kp D  &kp F      &kp G         &kp H      &kp J        &kp K      &kp L    &kp BSPC
+&kp A  &kp S  &kp D  &kp F      &kp G         &kp H      &kp J        &kp K      &kp L    &kp BACKSPACE
 &kp Z  &kp X  &kp C  &kp V      &kp B         &kp N      &kp M        &kp COMMA  &kp DOT  &kp FSLH
                      &lt 2 TAB  &kp LSHIFT    &kp SPACE  &lt 1 ENTER
             >;
@@ -128,9 +133,9 @@
         right_layer {
             display-name = "NUM & NAVIGATION";
             bindings = <
-&kp N1   &kp N2    &kp N3     &kp N4   &kp N5     &kp N6    &kp N7     &kp N8     &kp N9     &kp N0
-&kp DEL  &kp CAPS  &kp PSCRN  &kp INS  &trans     &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans
-&trans   &trans    &trans     &trans   &trans     &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &bootloader
+&kp N1   &kp N2    &kp N3     &kp N4   &kp N5     &kp N6    &kp N7        &kp N8        &kp N9        &kp N0
+&kp DEL  &kp CAPS  &kp PSCRN  &kp INS  &trans     &kp LEFT  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &trans
+&trans   &trans    &trans     &trans   &trans     &kp HOME  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans
                               &trans   &kp ESC    &trans    &trans
             >;
         };
@@ -141,11 +146,20 @@
 &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT          &kp CARET  &kp AMPS   &kp ASTRK  &kp GRAVE  &kp TILDE
 &kp DQT   &kp LBKT  &kp LBRC  &kp LPAR  &default_report    &kp FSLH   &kp MINUS  &kp EQUAL  &kp COLON  &kp SEMI
 &kp SQT   &kp RBKT  &kp RBRC  &kp RPAR  &bootloader        &kp BSLH   &kp UNDER  &kp PLUS   &kp PIPE   &kp QMARK
-                              &trans    &trans             &tog 4     &trans
+                              &trans    &trans             &tog 5     &trans
             >;
         };
 
-        tri_layer {
+        layer_5 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans    &trans  &trans
+            >;
+        };
+
+        func_layer {
             display-name = "FUNC";
             bindings = <
 &kp F1  &kp F2   &kp F3   &kp F4   &bt BT_SEL 0    &bt BT_SEL 2  &out OUT_TOG   &tog 0          &kp C_MUTE    &kp C_PREV
@@ -158,7 +172,7 @@
         mouse {
             display-name = "MOUSE";
             bindings = <
-&tog 4  &mkp MB4  &mkp MCLK  &mkp MB5   &trans        &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &tog 4
+&tog 5  &mkp MB4  &mkp MCLK  &mkp MB5   &trans        &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &tog 5
 &trans  &trans    &trans     &trans     &trans        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans
 &trans  &trans    &trans     &trans     &trans        &trans          &mkp MB4        &mkp MCLK     &mkp MB5         &trans
                              &kp SPACE  &kp LSHIFT    &mkp LCLK       &mkp RCLK
