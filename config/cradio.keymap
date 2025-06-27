@@ -115,6 +115,11 @@
             bindings = <&kp BACKSPACE>;
             key-positions = <9 8>;
         };
+
+        combo_semi_colon {
+            bindings = <&kp SEMI>;
+            key-positions = <19 18>;
+        };
     };
 
     keymap {
@@ -131,12 +136,12 @@
         };
 
         right_layer {
-            display-name = "NUM & NAVIGATION";
+            display-name = "NUM";
             bindings = <
-&kp N1   &kp N2    &kp N3     &kp N4   &kp N5     &kp N6    &kp N7        &kp N8        &kp N9        &kp N0
-&kp DEL  &kp CAPS  &kp PSCRN  &kp INS  &trans     &kp LEFT  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &trans
-&trans   &trans    &trans     &trans   &trans     &kp HOME  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans
-                              &trans   &kp ESC    &trans    &trans
+&kp N1   &kp F7  &kp F8  &kp F9  &kp F10    &kp N6    &kp N7        &kp N8        &kp N9        &kp N0
+&kp DEL  &kp F4  &kp F5  &kp F6  &kp F11    &kp LEFT  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp DELETE
+&trans   &kp F1  &kp F2  &kp F3  &kp F12    &kp HOME  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans
+                         &trans  &kp ESC    &trans    &trans
             >;
         };
 
