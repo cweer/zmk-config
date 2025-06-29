@@ -169,10 +169,10 @@
         ll_1_sym {
             display-name = "SYMBOL";
             bindings = <
-&kp DOUBLE_QUOTES  &kp COLON       &kp SLASH      &macro_select_line  &kp LC(LA(DEL))    &kp GRAVE         &kp AMPS    &kp ASTRK    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-&kp LEFT_ALT       &kp LEFT_SHIFT  &kp LCTRL      &kp TAB             &default_report    &kp LEFT_BRACE    &kp DOLLAR  &kp PERCENT  &kp CARET             &kp RIGHT_BRACE
-&kp SINGLE_QUOTE   &kp SEMICOLON   &kp BACKSLASH  &macro_select_word  &kp LS(LG(S))      &kp LEFT_BRACKET  &kp EXCL    &kp AT_SIGN  &kp POUND             &kp RIGHT_BRACKET
-                                                  &trans              &trans             &trans            &tog 5
+&kp DOUBLE_QUOTES  &kp COLON      &macro_select_line  &macro_select_word  &kp LC(LA(DEL))    &kp GRAVE         &kp AMPS    &kp ASTRK    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+&kp LA(LS(TAB))    &kp LA(TAB)    &kp LC(LS(TAB))     &kp LC(TAB)         &default_report    &kp LEFT_BRACE    &kp DOLLAR  &kp PERCENT  &kp CARET             &kp RIGHT_BRACE
+&kp SINGLE_QUOTE   &kp SEMICOLON  &kp SLASH           &kp BACKSLASH       &kp LS(LG(S))      &kp LEFT_BRACKET  &kp EXCL    &kp AT_SIGN  &kp POUND             &kp RIGHT_BRACKET
+                                                      &trans              &trans             &kp LEFT_SHIFT    &trans
             >;
         };
 
