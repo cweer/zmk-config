@@ -120,6 +120,27 @@
             bindings = <&kp SEMI>;
             key-positions = <19 18>;
         };
+
+        combo_del {
+            bindings = <&kp DELETE>;
+            key-positions = <4 3>;
+        };
+    };
+
+    macros {
+        macro_select_line: macro_select_line {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp HOME &kp LS(END)>;
+            label = "MACRO_SELECT_LINE";
+        };
+
+        macro_select_word: macro_select_word {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(RIGHT_ARROW) &kp LC(LEFT) &kp LC(LS(RIGHT_ARROW))>;
+            label = "MACRO_SELECT_WORD";
+        };
     };
 
     keymap {
@@ -129,7 +150,7 @@
             display-name = "DEFAULT";
             bindings = <
 &kp Q  &kp W  &kp E  &kp R      &kp T         &kp Y        &kp U        &kp I      &kp O    &kp P
-&kp A  &kp S  &kp D  &kp F      &kp G         &kp H        &kp J        &kp K      &kp L    &kp BACKSPACE
+&kp A  &kp S  &kp D  &kp F      &kp G         &kp H        &kp J        &kp K      &kp L    &kp SINGLE_QUOTE
 &kp Z  &kp X  &kp C  &kp V      &kp B         &kp N        &kp M        &kp COMMA  &kp DOT  &kp FSLH
                      &lt 2 TAB  &kp LSHIFT    &lt 3 SPACE  &lt 1 ENTER
             >;
@@ -138,29 +159,29 @@
         rl_1_num {
             display-name = "NUM";
             bindings = <
-&kp N1   &kp F7  &kp F8  &kp F9  &kp F10    &kp SEMI      &kp N7        &kp N8        &kp N9        &kp KP_EQUAL
-&kp DEL  &kp F4  &kp F5  &kp F6  &kp F11    &kp KP_PLUS   &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp KP_MULTIPLY
-&trans   &kp F1  &kp F2  &kp F3  &kp F12    &kp KP_MINUS  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_DIVIDE
-                         &trans  &kp ESC    &trans        &trans
+&kp GRAVE      &kp F7  &kp F8  &kp F9  &kp F10    &kp SEMI      &kp N7        &kp N8        &kp N9        &kp KP_EQUAL
+&kp DEL        &kp F4  &kp F5  &kp F6  &kp F11    &kp KP_PLUS   &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp KP_MULTIPLY
+&kp BACKSLASH  &kp F1  &kp F2  &kp F3  &kp F12    &kp KP_MINUS  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_DIVIDE
+                               &trans  &trans     &trans        &trans
             >;
         };
 
         ll_1_sym {
             display-name = "SYMBOL";
             bindings = <
-&kp UNDER  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT          &kp CARET  &kp AMPS   &kp ASTRK    &kp GRAVE  &kp TILDE
-&kp DQT    &kp LBKT  &kp LBRC  &kp LPAR  &default_report    &kp FSLH   &kp MINUS  &kp EQUAL    &kp COLON  &kp SEMI
-&kp SQT    &kp RBKT  &kp RBRC  &kp RPAR  &trans             &kp BSLH   &kp EXCL   &kp AT_SIGN  &kp PIPE   &kp QMARK
-                               &trans    &trans             &tog 5     &trans
+&kp DOUBLE_QUOTES  &kp COLON       &kp SLASH      &macro_select_line  &kp LC(LA(DEL))    &kp GRAVE         &kp AMPS    &kp ASTRK    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+&kp LEFT_ALT       &kp LEFT_SHIFT  &kp LCTRL      &kp TAB             &default_report    &kp LEFT_BRACE    &kp DOLLAR  &kp PERCENT  &kp CARET             &kp RIGHT_BRACE
+&kp SINGLE_QUOTE   &kp SEMICOLON   &kp BACKSLASH  &macro_select_word  &kp LS(LG(S))      &kp LEFT_BRACKET  &kp EXCL    &kp AT_SIGN  &kp POUND             &kp RIGHT_BRACKET
+                                                  &trans              &trans             &trans            &tog 5
             >;
         };
 
         rl_2_nav {
             bindings = <
-&kp  &kp  &kp  &kp  &kp    &kp HOME  &kp PAGE_DOWN  &kp PG_UP  &kp END  &kp
-&kp  &kp  &kp  &kp  &kp    &kp       &kp            &kp        &kp      &kp
-&kp  &kp  &kp  &kp  &kp    &kp       &kp            &kp        &kp      &kp
-               &kp  &kp    &kp       &kp
+&kp  &kp  &kp  &kp  &kp    &kp HOME        &kp PAGE_DOWN   &kp PG_UP     &kp END          &kp
+&kp  &kp  &kp  &kp  &kp    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &kp
+&kp  &kp  &kp  &kp  &kp    &kp             &kp             &kp           &kp              &kp
+               &kp  &kp    &kp             &kp
             >;
         };
 
