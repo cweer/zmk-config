@@ -183,7 +183,7 @@
             bindings = <
 &kp F1           &kp F2       &kp F3           &highlight_line  &kp LC(LA(DEL))    &trans  &trans  &trans  &kp C_MUTE    &kp C_PREV
 &kp LA(LS(TAB))  &kp LA(TAB)  &kp LC(LS(TAB))  &kp LC(TAB)      &kp LG(LS(S))      &trans  &trans  &trans  &kp C_VOL_UP  &kp C_PP
-&bootloader      &kp F10      &kp F11          &kp F12          &highlight_line    &trans  &trans  &trans  &kp C_VOL_DN  &kp C_NEXT
+&bootloader      &kp F10      &kp F11          &kp F12          &default_report    &trans  &trans  &trans  &kp C_VOL_DN  &kp C_NEXT
                                                &trans           &trans             &trans  &trans
             >;
         };
