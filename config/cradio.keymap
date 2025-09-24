@@ -163,7 +163,7 @@
             display-name = "NAV";
             bindings = <
 &trans   &trans    &trans     &trans   &trans     &kp HOME  &kp PAGE_DOWN  &kp PAGE_UP  &kp END    &trans
-&kp DEL  &kp CAPS  &kp PSCRN  &kp INS  &trans     &kp LEFT  &kp DOWN       &kp UP       &kp RIGHT  &reset
+&kp DEL  &kp CAPS  &kp PSCRN  &kp INS  &trans     &kp LEFT  &kp DOWN       &kp UP       &kp RIGHT  &default_report
 &trans   &trans    &trans     &trans   &trans     &kp HOME  &kp PG_DN      &kp PG_UP    &kp END    &bootloader
                               &trans   &kp ESC    &trans    &trans
             >;
