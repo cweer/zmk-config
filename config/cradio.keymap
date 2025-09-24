@@ -5,10 +5,7 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // 10
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/pointing.h>
 
 #define MAC 0
 #define WIN 1
@@ -73,7 +70,14 @@
         };
     };
 
-    conditional_layers { compatible = "zmk,conditional-layers"; };
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        tri_layer {
+            if-layers = <2 3>;
+            then-layer = <4>;
+        };
+    };
 
     combos {
         compatible = "zmk,combos";
@@ -133,11 +137,20 @@
         };
     };
 
+    macros {
+        screenshot: screenshot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <>;
+            label = "SCREENSHOT";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            display-name = "DEFAULT";
+        home_layer {
+            display-name = "HOME";
             bindings = <
 &kp Q  &kp W  &kp E  &kp R      &kp T         &kp Y        &kp U        &kp I      &kp O    &kp P
 &kp A  &kp S  &kp D  &kp F      &kp G         &kp H        &kp J        &kp K      &kp L    &kp APOS
@@ -147,7 +160,7 @@
         };
 
         nav_layer {
-            display-name = "NUM & NAVIGATION";
+            display-name = "NAV";
             bindings = <
 &kp N1   &kp N2    &kp N3     &kp N4   &kp N5     &kp N6    &kp N7     &kp N8     &kp N9     &kp N0
 &kp DEL  &kp CAPS  &kp PSCRN  &kp INS  &trans     &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &trans
@@ -157,7 +170,7 @@
         };
 
         num_layer {
-            display-name = "SYMBOL";
+            display-name = "NUM";
             bindings = <
 &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT          &kp CARET       &kp N7        &kp N8        &kp N9        &kp N0
 &kp DQT   &kp LBKT  &kp LBRC  &kp LPAR  &default_report    &kp LEFT_BRACE  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp RIGHT_BRACE
@@ -169,20 +182,20 @@
         func_layer {
             display-name = "FUNC";
             bindings = <
-&kp F1  &kp F2   &kp F3   &kp F4   &bt BT_SEL 0    &bt BT_SEL 2  &out OUT_TOG   &tog 0          &kp C_MUTE    &kp C_PREV
-&kp F5  &kp F6   &kp F7   &kp F8   &bt BT_SEL 1    &bt BT_SEL 3  &kp C_BRI_UP   &studio_unlock  &kp C_VOL_UP  &kp C_PP
-&kp F9  &kp F10  &kp F11  &kp F12  &bt BT_CLR      &bt BT_SEL 4  &kp C_BRI_DEC  &soft_off       &kp C_VOL_DN  &kp C_NEXT
-                          &trans   &trans          &trans        &trans
+&kp F1  &kp F2   &kp F3   &kp F4   &kp LC(LA(DEL))    &trans  &trans  &trans  &kp C_MUTE    &kp C_PREV
+&kp F5  &kp F6   &kp F7   &kp F8   &kp LG(LS(S))      &trans  &trans  &trans  &kp C_VOL_UP  &kp C_PP
+&kp F9  &kp F10  &kp F11  &kp F12  &trans             &trans  &trans  &trans  &kp C_VOL_DN  &kp C_NEXT
+                          &trans   &trans             &trans  &trans
             >;
         };
 
         tri_layer {
-            display-name = "MOUSE";
+            display-name = "TRI";
             bindings = <
-&tog 4  &mkp MB4  &mkp MCLK  &mkp MB5   &trans        &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &tog 4
-&trans  &trans    &trans     &trans     &trans        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans
-&trans  &trans    &trans     &trans     &trans        &trans          &mkp MB4        &mkp MCLK     &mkp MB5         &trans
-                             &kp SPACE  &kp LSHIFT    &mkp LCLK       &mkp RCLK
+&trans  &kp F7  &kp F8  &kp F9     &kp F10       &trans  &trans  &trans  &trans  &trans
+&trans  &kp F4  &kp F5  &kp F6     &kp F11       &trans  &trans  &trans  &trans  &trans
+&trans  &kp F1  &kp F2  &kp F3     &kp F12       &trans  &trans  &trans  &trans  &trans
+                        &kp SPACE  &kp LSHIFT    &trans  &trans
             >;
         };
     };
